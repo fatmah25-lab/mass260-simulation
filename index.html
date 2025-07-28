@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محاكاة الميزان</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>اسحب الأجسام إلى الميزان بعد إدخال الأبعاد</h2>
+
+  <div class="controls">
+    <button onclick="resetScale()">🔁 إعادة تعيين</button>
+  </div>
+
+  <div class="container">
+    <div class="objects">
+      <div class="object">
+        <img src="images/iron_cube.png" draggable="true" id="iron_cube" class="draggable" alt="مكعب حديد" />
+        <label>الطول (سم): <input type="number" id="iron_cube_size" value="5" min="0" /></label>
+      </div>
+      <div class="object">
+        <img src="images/orange.png" draggable="true" id="orange" class="draggable" alt="برتقالة" />
+        <label>نصف القطر (سم): <input type="number" id="orange_radius" value="4" min="0" /></label>
+      </div>
+      <div class="object">
+        <img src="images/wood_cylinder.png" draggable="true" id="wood_cylinder" class="draggable" alt="أسطوانة خشب" />
+        <label>نصف القطر (سم): <input type="number" id="wood_cylinder_radius" value="3" min="0" /></label>
+        <label>الارتفاع (سم): <input type="number" id="wood_cylinder_height" value="5" min="0" /></label>
+      </div>
+    </div>
+
+    <div id="scale-area" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+      <img src="images/scale.png" alt="ميزان" id="scale-img" />
+
+      <div id="scale-info">
+        <div id="mass-display">
+          <div class="mass-label">الكتلة</div>
+          <div class="mass-box kg-box">
+            <span id="kg-value">--</span> كجم
+          </div>
+          <div class="mass-box g-box">
+            <span id="g-value">--</span> جم
+          </div>
+        </div>
+
+        <div id="material-info">
+          <div class="items-count-box">
+            عدد المواد: <span id="item-count">0</span>
+          </div>
+          <ul id="material-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="drop-sound" src="audio/drop.mp3" preload="auto"></audio>
+  <script src="script.js"></script>
+
+  <!-- توقيع -->
+  <footer class="signature">FA25.PH</footer>
+</body>
+</html>
+
+
+
+  
